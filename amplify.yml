@@ -1,0 +1,16 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - yarn add typescript @types/node @types/react eslint-config-airbnb eslint-config-airbnb-base @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint -D --legacy-peer-deps && yarn install --production=false --legacy-peer-deps
+    build:
+      commands:
+        - yarn build
+  artifacts:
+    baseDirectory: .next
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
